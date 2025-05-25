@@ -3,7 +3,7 @@ services:
     name: heart-failure-predictor
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: gunicorn app:app --workers=1
     envVars:
       - key: MONGODB_ATLAS_URI
         value: mongodb+srv://helloarise:<Hack1538@#>@cluster0.bblowzm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
