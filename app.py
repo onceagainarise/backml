@@ -19,7 +19,7 @@ CORS(app)
 model = joblib.load('model.pkl')
 
 username = "helloarise"
-password = "<Hack1538@#>"
+password = "Hack1538@#"
 cluster_url = "cluster0.bblowzm.mongodb.net"
 db_name = "heartproblm"  # Your database name
 
