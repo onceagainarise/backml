@@ -28,9 +28,9 @@ encoded_username = quote_plus(username)
 encoded_password = quote_plus(password)  # This will encode @ -> %40, # -> %23
 
 # Construct the connection string
-uri = f"mongodb+srv://{encoded_username}:{encoded_password}@{cluster_url}/{db_name}?retryWrites=true&w=majority&appName=Cluster0"
+uri = f"mongodb+srv://{encoded_username}:{encoded_password}@{cluster_url}/{db_name}?retryWrites=true&w=majority&tls=true&appName=Cluster0"
+client = MongoClient(uri, server_api=ServerApi('1'))
 
-client = MongoClient(uri,server_api=ServerApi('1'))
 db = client["heartproblm"]
 predictions_collection = db["heartdata"]
 
