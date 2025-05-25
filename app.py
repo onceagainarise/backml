@@ -15,9 +15,19 @@ CORS(app)
 
 model = joblib.load('model.pkl')
 
+username = "helloarise"
+password = "<Hack1538@#>"
+cluster_url = "cluster0.bblowzm.mongodb.net"
+db_name = "heartproblm"  # Your database name
 
-atlas_uri = os.getenv('MONGODB_ATLAS_URI')
-client = MongoClient(atlas_uri,server_api=ServerApi('1'))
+# URL encode special characters
+encoded_username = quote_plus(username)
+encoded_password = quote_plus(password)  # This will encode @ -> %40, # -> %23
+
+# Construct the connection string
+uri = f"mongodb+srv://{encoded_username}:{encoded_password}@{cluster_url}/{db_name}?retryWrites=true&w=majority&appName=Cluster0"
+
+client = MongoClient(uri,server_api=ServerApi('1'))
 db = client["heartproblm"]
 predictions_collection = db["heartdata"]
 
