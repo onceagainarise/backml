@@ -7,7 +7,8 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 from functools import wraps
-
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 load_dotenv()
 app = Flask(__name__)
 CORS(app)  
@@ -16,7 +17,7 @@ model = joblib.load('model.pkl')
 
 
 atlas_uri = os.getenv('MONGODB_ATLAS_URI')
-client = MongoClient(atlas_uri)
+client = MongoClient(atlas_uri,server_api=ServerApi('1'))
 db = client["heartproblm"]
 predictions_collection = db["heartdata"]
 
