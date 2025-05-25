@@ -42,7 +42,7 @@ def encode_admission_type(admission_type):
 
 def encode_flag(flag_value: str) -> int:
     mapping = {
-        "nan": 0,
+        "normal": 0,
         "abnormal": 1,
         "delta": 2
     }
