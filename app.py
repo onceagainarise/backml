@@ -9,6 +9,9 @@ import os
 from functools import wraps
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from urllib.parse import quote_plus
+
+
 load_dotenv()
 app = Flask(__name__)
 CORS(app)  
